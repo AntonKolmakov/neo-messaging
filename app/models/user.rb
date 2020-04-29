@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-
   has_one :inbox
   has_one :outbox
   has_many :payments
@@ -9,16 +8,18 @@ class User < ApplicationRecord
   scope :admin, -> { where(is_admin: true) }
   scope :doctor, -> { where(is_doctor: true) }
 
-  def self.current
-    User.patient.first
-  end
-
-  def self.default_admin
-    User.admin.first
-  end
-
-  def self.default_doctor
-    User.doctor.first
+  class << self
+    def current
+      User.patient.first
+    end
+  
+    def default_admin
+      User.admin.first
+    end
+  
+    def default_doctor
+      User.doctor.first
+    end
   end
 
   def full_name
