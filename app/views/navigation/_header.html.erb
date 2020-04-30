@@ -8,7 +8,7 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <%= link_to messages_path, class: 'nav-link' do %>
-          Inbox
+          Inbox <span class="badge badge-light"><%= User.current.inbox.unread_messages %></span>
         <% end  %>
       </li>
     </ul>

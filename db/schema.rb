@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190626153436) do
+ActiveRecord::Schema.define(version: 20200429145435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "inboxes", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "unread_messages"
     t.index ["user_id"], name: "index_inboxes_on_user_id", using: :btree
   end
 

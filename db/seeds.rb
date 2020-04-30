@@ -13,3 +13,5 @@ admin = User.create(first_name: 'Obi-wan', last_name: 'Kenobi', is_admin: true, 
 Message.create(body: 'Thanks for your order. I will in touch shortly after reviewing your treatment application.',
                outbox: doctor.outbox,
                inbox: patient.inbox)
+
+Message.create(body: 'To doctor....', outbox: patient.outbox, inbox: doctor.inbox)
